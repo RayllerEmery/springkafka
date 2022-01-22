@@ -11,11 +11,17 @@ class Book {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    val id: String? = ""
+    val id: String = ""
 
     var name: String? = null
 
+    @ManyToOne
+    var people: People? = null
+
     constructor()
 
-    constructor(name: String) { this.name = name}
+    constructor(name: String, people: People) {
+        this.name = name
+        this.people = people
+    }
 }

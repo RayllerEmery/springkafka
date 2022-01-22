@@ -30,12 +30,12 @@ class PeopleConsumer() {
 
         logger.info(people.toString())
 
-        var p = br.com.springkafka.domain.People()
+        val p = br.com.springkafka.domain.People()
 
         p.name = people.name.toString()
         p.cpf = people.cpf.toString()
         p.books = people.books.map {
-            Book(it.toString())
+            Book(name = it.toString(), p)
         }
 
         manager.persist(p)

@@ -9,11 +9,11 @@ class People{
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
-    val id: String? = ""
+    val id: String = ""
     var name: String? = null
     var cpf: String? = null
 
-    @ManyToMany(cascade = [CascadeType.ALL])
+    @OneToMany(mappedBy = "people", cascade = [CascadeType.ALL])
     var books: List<Book>? = null
 
     constructor()
